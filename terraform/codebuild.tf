@@ -105,13 +105,7 @@ resource "aws_codebuild_project" "codebuild" {
   service_role  = aws_iam_role.build_role.arn
 
   artifacts {
-￼Pin
- Watch 0 
-Fork 7Fork your own copy of arthur-cloudlem/myapp-eks-1
-￼ Star 0
-Code
-Pull requests
-Actions
+
 
     type = "CODEPIPELINE"
   }
