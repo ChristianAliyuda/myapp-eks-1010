@@ -29,10 +29,10 @@ phases:
     commands: 
       - echo Build started on `date` 
       - echo Building the Docker image...           
-      - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG hello
-      - echo docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG   
-      - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG       
-  post_build: 
+      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/m0g7s6n5
+      - docker build -t helloworld .
+      - docker tag helloworld:latest public.ecr.aws/m0g7s6n5/helloworld:latest
+      - docker push public.ecr.aws/m0g7s6n5/helloworld:latest
     commands: 
       - echo Build completed on `date` 
       - echo Pushing the Docker image... 
