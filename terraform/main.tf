@@ -25,10 +25,10 @@ variable "owner" {
   default = "arthur-cloudlem"
 } 
 variable "repo" {
-  default = "myapp-eks"
+  default = "myapp-eks-1010"
 }
 variable "gitHubToken" {
-  default = "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"
+  default = "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"
 }
 
 
